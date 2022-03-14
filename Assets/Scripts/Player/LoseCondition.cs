@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class LoseCondition : MonoBehaviour
 {
     private Animator anim;
+    public GameObject Player;
     public static float healthAmount;
 
-    //Rigidbody2D healthBar;
+    //public Rigidbody2D healthBar;
+    
     private void Start() {
         //set animator parameters
         anim = GetComponent<Animator>();
@@ -21,9 +23,14 @@ public class LoseCondition : MonoBehaviour
     //player dies on collision with ground0
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "ground0"){
-            anim.SetTrigger("die");    
+            anim.SetTrigger("die");
+            Invoke("Die", 1f);
             //Invoke("ReloadScene", 0.2f);
         }
+    }
+    //Player's death
+    void Die(){
+        Destroy(Player);
     }
 
     //reloads scene
@@ -32,14 +39,14 @@ public class LoseCondition : MonoBehaviour
     }
     private void Update() {
         //this is for healthBar but needs to be completed
-        //if(healthAmount <= 0) Destroy(gameObject);
+        // if(healthAmount <= 0) Die();
     }
 
     // for healthBar too
     // private void OnTriggerEnter2D(Collider2D other) {
-    //     
-    //     // if(other.gameObject.name.Equals("Ground")){
-    //     //     healthAmount -= 0.3f;
-    //     // }
+        
+    //     if(other.gameObject.name.Equals("Ground")){
+    //         healthAmount -= 0.3f;
+    //     }
     // }
 }
