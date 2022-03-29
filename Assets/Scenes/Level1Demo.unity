@@ -662,6 +662,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2154541597904788559, guid: caa5517c7ff1b8c4f9a7b06c46724294, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 2378316830914835194, guid: caa5517c7ff1b8c4f9a7b06c46724294, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -748,6 +752,7 @@ GameObject:
   - component: {fileID: 336464835}
   - component: {fileID: 336464841}
   - component: {fileID: 336464842}
+  - component: {fileID: 336464843}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -940,7 +945,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4a346474bed184ea610e36033d44e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
   Player: {fileID: 336464834}
+--- !u!114 &336464843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336464834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba584b6d4716b0040a7aa013b5db3a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  anim: {fileID: 0}
 --- !u!1 &347535926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1492,6 @@ GameObject:
   - component: {fileID: 1063576702}
   - component: {fileID: 1063576701}
   - component: {fileID: 1063576700}
-  - component: {fileID: 1063576706}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -1485,17 +1506,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063576699}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466cb2a3faf3bdb4a941969cb205646e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d2d27a8db0488d4cae5ac4a6b5e45ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  speed: 10
-  body: {fileID: 0}
+  speed: 5
+  Player: {fileID: 336464834}
 --- !u!50 &1063576701
 Rigidbody2D:
   serializedVersion: 4
@@ -1628,20 +1645,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1063576706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063576699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d2d27a8db0488d4cae5ac4a6b5e45ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 1063576699}
-  push: 10
 --- !u!1 &1159690968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1192834627}
   - component: {fileID: 1192834628}
+  - component: {fileID: 1192834629}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1862,6 +1866,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1192834629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192834626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa30b7ea36a671408a14bd7d2e34d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1235807532
 GameObject:
   m_ObjectHideFlags: 3

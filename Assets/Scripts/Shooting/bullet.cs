@@ -9,10 +9,12 @@ public class bullet : MonoBehaviour
 
     // if bullet collides with enemy, this method will be called (Pushback) under
     // certain condition
-    private void OnTriggerEnter2D(Collider2D other) {   
-        if(enemyTarget == "Enemy"){
-                other.gameObject.GetComponent<Enemy>().PushBack();
-        }        
-    }
+    // private void OnCollisionEnter2D(Collision2D other) {
+    //     if(other.gameObject.tag == "Enemy"){
+    //             other.gameObject.GetComponent<Enemy>().PushBack();
+    //             Destroy(bulletPrefab);
+    //             Debug.Log("Enemy Hit");
+    //     }
+    // }
     
 }

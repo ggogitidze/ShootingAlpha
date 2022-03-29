@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoseCondition : MonoBehaviour
 {
+    public int maxHealth = 10;
+    public int currentHealth;
     private Animator anim;
     public GameObject Player;
     public static float healthAmount;
@@ -14,7 +16,9 @@ public class LoseCondition : MonoBehaviour
     private void Start() {
         //set animator parameters
         anim = GetComponent<Animator>();
-
+    
+        currentHealth = maxHealth;
+    
         //this is for healthBar but needs to be completed
         // healthAmount = 2;
         // healthBar = GetComponent<Rigidbody2D>();
@@ -28,8 +32,18 @@ public class LoseCondition : MonoBehaviour
             //Invoke("ReloadScene", 0.2f);
         }
     }
+
+    void takeDamage(int damageAmount){
+        currentHealth -= damageAmount;
+
+        if(currentHealth <= 0){
+            //Game Over
+            anim.SetTrigger("die");
+            Invoke("Die", 1f);
+        }
+    }
     //Player's death
-    void Die(){
+    public void Die(){
         Destroy(Player);
     }
 
